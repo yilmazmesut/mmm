@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="belirli method calistirma">
+    <test name="satis fonksyonlari testi">
+        <classes>
+            <class name="tests.day13.C03_Pages">
+                <methods>
+                    <
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
+
+<!-- Hiyerarsi bu sekildedir, bunlardan birine ulasmak istiyorsak yukaridan asagiya dogru sirayla gitmeliyiz:
+     Suite -> Test -> Package -> class -> method
+    Test dedigimizde aklimiza gelecekler: Smoke, Regression, E2E, Mini Regressions
+    Konu:   dosyalari otomatik calistirma
+
+    bir class'in icindeki tum methodldari calistirmak istiyorsam, direk class'i calistirmam yeterlidir.
+    ancak class'in icindeki belli methodlari kullanmak istiyorsak iki secenek var:
+    exclude=> sectigimiz haricindekileri calistirir.
+    include=> sadece sectigimizi calistirir. calistiracagimiz method sayisi az olduguda
+-->

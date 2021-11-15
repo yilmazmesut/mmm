@@ -1,12 +1,11 @@
-package tests.day16;
+package tests.day16_Odevler;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.QAConcortPage;
-import utilities.Driver;
 
-public class C02_WebTable {
+public class C01_WebTables {
 
     @Test
     public void test() {
@@ -22,16 +21,17 @@ public class C02_WebTable {
 
         //● table() metodu oluşturun
         // ○ Tüm table body’sinin boyutunu(sutun sayisi) bulun. /tbody
-        for (WebElement each : qaConcortPage.basliklarListesi) {
+        for (WebElement each: qaConcortPage.basliklarListesi) {
             System.out.println(each.getText());
-        }   // tablonun basligindaki data(satir) lari basliklarListesi'ne attik
-        System.out.println("Toblodaki surunlarin sayisi: " + qaConcortPage.basliklarListesi.size());  // sutun sayisini yazdirdik
+        }
+        System.out.println(qaConcortPage.basliklarListesi.size());
 
         // ○ Table’daki tum body’I ve başlıkları(headers) konsolda yazdırın.
-        // eger tum tablo body'sini hucrelere ayirmadan tek bir String olarak gormek istersek
-        // tum body'i tek bir Webelement olarak locate edebiliriz
-        // bu yaklasim tabloda HAPPY HOTEL varm i gibi sorular icin ideal bir cozum olur
-        System.out.println(qaConcortPage.tbodyTumu.getText());  // tamamini tek bir string'in icinde yazdirir.
+            // eger tum tablo body'sini hucrelere ayirmadan tek bir String olarak gormek istersek
+            // tum body'i tek bir Webelement olarak locate edebiliriz
+            // bu yaklasim tabloda HAPPY HOTEL varm i gibi sorular icin ideal bir cozum olur
+
+        System.out.println(qaConcortPage.tbodyTumu.getText());
         Assert.assertTrue(qaConcortPage.tbodyTumu.getText().contains("HAPPY HOTEL"));
 
         //● printRows() metodu oluşturun //tr
@@ -39,19 +39,20 @@ public class C02_WebTable {
         System.out.println(qaConcortPage.satirlarListesi.size());
 
         // ○ Table body’sinde bulunan satirlari(rows) konsolda yazdırın.
-        System.out.println(qaConcortPage.birinciSatir.getText());
-
-        // eger tum satirlari yazdirmak istersek:
-        for (int i = 1; i <= qaConcortPage.satirlarListesi.size(); i++) {
-            System.out.println(i + ". satir : " + qaConcortPage.satirlarListesi.get(i).getText());
-        }
-
-        // ○ 4.satirdaki(row) elementleri konsolda yazdırın. (her satirdaki 4. datalari getir):
-        for (WebElement each : qaConcortPage.dorduncuSutunListe) {
+        for (WebElement each:qaConcortPage.satirlarListesi) {
             System.out.println(each.getText());
         }
 
-        Driver.closeDriver();
+        // eger tum satirlari yazdirmak istersek:
+        for (int i = 1; i <= qaConcortPage.satirlarListesi.size() ; i++) {
+            System.out.println(i + ". satir: " + qaConcortPage.satirlarListesi.get(i).getText());
+        }
+
+        // ○ 4.satirdaki(row) elementleri konsolda yazdırın. (satirlardaki 4. datalari getir):
+        for (WebElement each:qaConcortPage.dorduncuSutunListe) {
+            System.out.println(each.getText());
+        }
+
 
     }
 }

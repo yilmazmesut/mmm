@@ -19,7 +19,7 @@ public class negativeTest {
     //3) Login butonuna bas
     //4) Verilen senaryolar ile giris yapilamadigini test et
 
-    @Test(priority = -5)
+    @Test(priority = -5, groups = "birinciGrup")
     public void yanlisSifre() {
         Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();

@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -36,7 +37,7 @@ public class QAConcortPage {
     public WebElement loginFailedYazisi;
 
     public void ConcortHotelLogin() {
-        Driver.getDriver().get(ConfigReader.getProperty("CHUrl"));
+        Driver.getDriver().get(ConfigReader.getProperty("CHQAUrl"));
         QAConcortPage qaConcortPage = new QAConcortPage();
         qaConcortPage.ilkLoginLinki.click();
         qaConcortPage.usernameKutusu.sendKeys(ConfigReader.getProperty("CHQValidUsername"));
@@ -101,7 +102,24 @@ public class QAConcortPage {
     @FindBy(xpath = "//tbody//tr[1]")
     public WebElement birinciSatir;
 
-    @FindBy(xpath = "//tbody/tr//td[4]")
-    public List<WebElement> dorduncuStunListe;
+    @FindBy(xpath = "//tbody/tr//td[4]")            // //tbody//td[4]
+    public List<WebElement> dorduncuSutunListe;
+
+    public String printData(int satir, int sutun) {
+        // String xpath = "//tbody//tr[3]//td[5]";
+        // yukaridaki kodu dinamik hale getirelim:
+        // (degismeyecek kisimlari String, degisecek kisimlari ise isim olarak yazdik)
+        String xpath = "//tbody//tr[" + satir + "]//td[" + sutun + "]";
+
+        // @FindBy notasyonu parametreli calismadigi icin onceki yontemle locate edelim:
+        String istenenData = Driver.getDriver().findElement(By.xpath(xpath)).getText();
+        System.out.println("satir no :" + satir + ", sutun no :" + sutun + " daki data :" + istenenData);
+
+        return istenenData;
+    }
+
+
+
+
 
 }
