@@ -105,6 +105,7 @@ public class QAConcortPage {
     @FindBy(xpath = "//tbody/tr//td[4]")            // //tbody//td[4]
     public List<WebElement> dorduncuSutunListe;
 
+
     public String printData(int satir, int sutun) {
         // String xpath = "//tbody//tr[3]//td[5]";
         // yukaridaki kodu dinamik hale getirelim:
